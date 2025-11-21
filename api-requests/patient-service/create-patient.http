@@ -1,0 +1,12 @@
+### create a new patient entity
+POST http://localhost:4000/patients
+Content-Type: application/json
+
+{
+  "name": "Khoa",
+  "email": "6351071034@st.utc2.edu.vn",
+  "address": "448 Le Van Viet",
+  "dateOfBirth": "2004-01-19",
+  "registeredDate": "2025-11-21"
+}
+###
