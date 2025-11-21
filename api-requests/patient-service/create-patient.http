@@ -10,10 +10,11 @@ Content-Type: application/json
 //  "registeredDate": "2025-11-21"
 //}
 {
-  "name": "Khoa",
-  "email": "6351071034@st.utc2.edu.vn",
-  "address": "448 Le Van Viet",
+  "name": "Khoa Nguyen",
+  "email": "6351071034@st.utc.edu.vn",
+  "address": "448 Le Van Viet, HCMC",
   "dateOfBirth": "2004-01-19",
   "registeredDate": "2025-11-21"
+
 }
 ###
