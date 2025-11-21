@@ -6,6 +6,8 @@ import com.pm.patientservice.dto.PatientResponseDTO;
 import com.pm.patientservice.dto.validators.CreatePatientValidationGroup;
 import com.pm.patientservice.model.Patient;
 import com.pm.patientservice.service.PatientService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.groups.Default;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,8 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/patients") // http://localhost:4000/patients
+@Tag(name="Patient", description = "API for managing Patients")
+
 public class PatientController {
     private final PatientService patientService;
 
@@ -25,12 +29,14 @@ public class PatientController {
     }
 
     @GetMapping
+    @Operation(summary = "Get patients")
     public ResponseEntity<List<PatientResponseDTO>> getPatients() {
         List<PatientResponseDTO> patients = patientService.getPatients();
         return ResponseEntity.ok().body(patients);
     }
 
     @PostMapping
+    @Operation(summary = "Create a new patient")
     public ResponseEntity<PatientResponseDTO> createPatient
             (@Validated({Default.class, CreatePatientValidationGroup.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
 
@@ -40,6 +46,7 @@ public class PatientController {
 
     // localhost://patients/12121212-1213-34
     @PutMapping("/{patientId}")
+    @Operation(summary = "Update a patient")
     public ResponseEntity<PatientResponseDTO> updatePatient (@PathVariable UUID patientId, @Validated({Default.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
 
         PatientResponseDTO patientResponseDTO = patientService.updatePatient(patientRequestDTO,patientId);
@@ -47,6 +54,8 @@ public class PatientController {
     }
 
     @DeleteMapping("/{patientId}")
+    @Operation(summary = "Delete a patient")
+
     public  ResponseEntity<Void> deletePatient (@PathVariable UUID patientId) {
         patientService.deletePatient(patientId);
         return ResponseEntity.noContent().build();
