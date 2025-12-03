@@ -10,8 +10,8 @@ Content-Type: application/json
 //  "registeredDate": "2025-11-21"
 //}
 {
-  "name": "Khoa Nguyen kafka trigger",
-  "email": "6351071034.kafka.trigger@st.utc2.edu.vn",
+  "name": "Khoa Nguyen kafka TEST 2",
+  "email": "6351071034.kafka.test2@st.utc2.edu.vn",
   "address": "448 Le Van Viet, HCMC",
   "dateOfBirth": "2004-01-19",
   "registeredDate": "2025-11-21"
